@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">socialshare</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="load_image">Load Photo from Gallery</string>
+    <string name="choose">Choose</string>
+    <string name="facebook_upload">Facebook</string>
+    <string name="weibo_upload">Weibo</string>
+    <string name="upload">Upload !</string>
+    <string name="fb_app_id"></string>
+    <string name="wb_app_id"></string>
+
+</resources>

@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SocialShare" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/load_image" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/choose">
+    </Button>
+    
+    <ImageView
+        android:id="@+id/select_image"
+        android:layout_width = "wrap_content"
+        android:layout_height="wrap_content">
+    </ImageView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        	<Button 
+        	    android:id="@+id/facebook_upload"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:text="@string/facebook_upload"/>
+        	<Button 
+        	    android:id="@+id/weibo_upload"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:text="@string/weibo_upload"/>
+    </LinearLayout>
+    
+</LinearLayout>
