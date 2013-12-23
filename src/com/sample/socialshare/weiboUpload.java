@@ -41,7 +41,7 @@ import com.weibo.sdk.android.net.RequestListener;
 
 public class weiboUpload extends Activity{
 	private Weibo mWeibo;
-    private static final String REDIRECT_URL = "http://www.sina.com";
+    	private static final String REDIRECT_URL = "http://www.sina.com";
 	private String bitmapPath;
 	private String profileImageUrl;
 	private Context context;
@@ -51,7 +51,7 @@ public class weiboUpload extends Activity{
 	private Button postPhotoButton;
 	private ImageButton loginButton;
 	private int logState = 0;
-    public static Oauth2AccessToken accessToken;
+    	public static Oauth2AccessToken accessToken;
 	private ProgressDialog dialog;
 	
 	public void onCreate(Bundle savedInstanceState) { 
@@ -59,48 +59,47 @@ public class weiboUpload extends Activity{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		context = this.getBaseContext();
 		Intent i = getIntent();
-	    bitmapPath = i.getStringExtra("bitmapPath");
+	    	bitmapPath = i.getStringExtra("bitmapPath");
 		setContentView(R.layout.wb); 
 		
 		Resources res = getResources();
 		mWeibo = Weibo.getInstance(res.getString(R.string.wb_app_id), REDIRECT_URL);
-        loginButton = (ImageButton) findViewById(R.id.wbLogin);
-        userDiaplay = (ImageView)findViewById(R.id.wbProfile);
+        	loginButton = (ImageButton) findViewById(R.id.wbLogin);
+        	userDiaplay = (ImageView)findViewById(R.id.wbProfile);
         
-        /**
-         * automatically log in
-         */
-        mWeibo.authorize(weiboUpload.this, new AuthDialogListener());
+        	/**
+         	* automatically log in
+         	*/
+        	mWeibo.authorize(weiboUpload.this, new AuthDialogListener());
         
-        loginButton.setOnClickListener(new OnClickListener() {
+        	loginButton.setOnClickListener(new OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-            	if(logState == 0){
-            		mWeibo.authorize(weiboUpload.this, new AuthDialogListener());
-            	}
-            	else{
-            		AccessTokenKeeper.clear(weiboUpload.this);
-            		logState = 0;
-            		userDiaplay.setImageResource(R.drawable.wbprofile);
-            		CookieSyncManager.createInstance(weiboUpload.this.context);
-            		CookieManager.getInstance().removeAllCookie();
-            		loginButton.setImageResource(R.drawable.wb_login_up);
-            	}
-            }
-            
-        });
+            		@Override
+            		public void onClick(View v) {
+            			if(logState == 0){
+            				mWeibo.authorize(weiboUpload.this, new AuthDialogListener());
+            			}
+            			else{
+            				AccessTokenKeeper.clear(weiboUpload.this);
+            				logState = 0;
+            				userDiaplay.setImageResource(R.drawable.wbprofile);
+            				CookieSyncManager.createInstance(weiboUpload.this.context);
+            				CookieManager.getInstance().removeAllCookie();
+            				loginButton.setImageResource(R.drawable.wb_login_up);
+            			}
+            		}
+		});
         
-        /**
-         * post photo
-         */
-        postPhotoButton = (Button)findViewById(R.id.wbUpload);
-        postPhotoButton.setOnClickListener(new OnClickListener(){
-        	@Override
-        	public void onClick(View v){
-        		postPhoto();
-        	}
-        });
+        	/**
+         	 * post photo
+         	 */
+        	postPhotoButton = (Button)findViewById(R.id.wbUpload);
+        	postPhotoButton.setOnClickListener(new OnClickListener(){
+        		@Override
+        		public void onClick(View v){
+        			postPhoto();
+        		}
+        	});
 	}
 	
 	private void postPhoto(){
@@ -131,7 +130,7 @@ public class weiboUpload extends Activity{
 					public void run() {
 						dialog.dismiss();
 						Toast.makeText(weiboUpload.this, "Unsuccessful, you may repeat!", Toast.LENGTH_SHORT)
-	                        .show();
+	                        			.show();
 					}
 				});
 			}
@@ -144,7 +143,7 @@ public class weiboUpload extends Activity{
 					public void run() {
 						dialog.dismiss();
 						Toast.makeText(weiboUpload.this, "Upload Successful", Toast.LENGTH_SHORT)
-                        .show();
+                        				.show();
 					}
 				});
 			}
@@ -154,9 +153,8 @@ public class weiboUpload extends Activity{
 			 */
 			runOnUiThread(new Runnable() {
 				public void run() {
-					
 					Toast.makeText(weiboUpload.this, "Log In Please!", Toast.LENGTH_SHORT)
-                    .show();
+                    				.show();
 				}
 			});
 		}
